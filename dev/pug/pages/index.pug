@@ -1,0 +1,28 @@
+extends ../layouts/main
+
+block variables
+  -var title = 'Главная страница'
+
+
+block content
+  .article
+    .img
+    .main
+      span.title Shift the overall look and feel by adding these wonderful touches to furniture in your home
+      span.text Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.
+      .article__info
+        .author
+          .author__img-wrapper
+            img(src="static/img/common/avatar-michelle.jpg" alt='Автор').author__img
+          .author__info
+            span.author__name Michelle Appleton
+            span.date 28 Jun 2020
+        .share
+          .share__content
+            span SHARE
+            ul
+              each social in ['fb','pin','twitter']
+                li
+                  +icon(social)
+          .share__toggle
+            +icon('share')

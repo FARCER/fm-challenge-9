@@ -1,0 +1,242 @@
+@import "helpers/libs";
+@import "helpers/vars";
+@import "helpers/mixins";
+@import "helpers/fonts";
+html {
+  background-color: #ecf2f8;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  height: 100%;
+  min-height: 100%;
+  line-height: 1.5;
+}
+*,
+*::before,
+*::after { box-sizing: border-box; }
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+ol, ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+input,
+button,
+textarea,
+select { font: inherit; }
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea { vertical-align: middle; }
+textarea { resize: none; }
+section { position: relative; }
+input,
+select,
+button { outline: none; }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex: 1 0 auto;
+}
+.container {
+  margin: 0 auto;
+  max-width: $content;
+  width: 100%;
+}
+.article {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 40px 40px -10px rgba(201, 213, 225, 0.503415);
+  width: 100%;
+  max-width: 730px;
+  margin: 24px;
+  @include screen(1000px) {
+    flex-direction: column;
+  }
+  &__info {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+}
+.img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 0 0 10px;
+  flex-shrink: 0;
+  background-image: url('../img/common/drawers.jpg');
+  @include min-screen(1001px) {
+    width: 285px;
+  }
+  @include screen(1000px) {
+    height: 200px;
+  }
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 40px;
+  position: relative;
+  @include screen(1000px) {
+    padding: 40px 32px 16px;
+  }
+}
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #48556a;
+  margin-bottom: 12px;
+  @include screen(1000px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.text {
+  font-size: 13px;
+  line-height: 20px;
+  color: #6e8098;
+  margin-bottom: 20px;
+  @include screen(1000px) {
+    margin-bottom: 32px;
+  }
+}
+.author {
+  display: flex;
+  &__img-wrapper {
+    flex-shrink: 0;
+    margin-right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 20px;
+    color: #48556a;
+  }
+}
+.date {
+  font-size: 13px;
+  line-height: 20px;
+  color: #9daec2;
+}
+.share {
+  @include min-screen(1000px +1) {
+    position: relative;
+  }
+
+  &.open {
+    .share {
+      &__toggle {
+        background-color: #6e8098;
+        .icon {
+          fill: #fff;
+        }
+      }
+      &__content {
+        display: flex;
+      }
+    }
+  }
+  &__toggle {
+    border-radius: 50%;
+    background-color: #ecf2f8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    z-index: 10;
+    .icon {
+      fill: #6e8098;
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &__content {
+    align-items: center;
+    background-color: #48556a;
+    padding: 16px 32px;
+    position: absolute;
+    border-radius: 10px;
+    left: 50%;
+    bottom: calc(100% + 24px);
+    display: none;
+    @include min-screen(1000px + 1px) {
+      transform: translateX(-50%);
+    }
+    @include screen(1000px) {
+      border-radius: 0 0 10px 10px;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+      height: 64px;
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 12px 0 12px;
+      border-color: #48556a transparent transparent transparent;
+      position: absolute;
+      left: 50%;
+      margin-left: -12px;
+      top: 100%;
+      @include screen(1000px) {
+        display: none;
+      }
+    }
+    span {
+      color: #9daec2;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 5px;
+      margin-right: 16px;
+    }
+  }
+  ul {
+    display: flex;
+    .icon {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+    li {
+      cursor: pointer;
+      &:not(:last-child) { margin-right: 16px; }
+    }
+  }
+}
+//Модули
+@import "modules/modules";

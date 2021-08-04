@@ -1,0 +1,1 @@
+"use strict";function share(){document.querySelector(".share__toggle").addEventListener("click",function(){this.closest(".share").classList.toggle("open")})}svg4everybody(),share();
